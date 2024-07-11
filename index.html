@@ -1,1 +1,883 @@
-<h1> Hola soy Jonny! </h1> 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portafolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
+        * {
+            box-sizing: border-box;
+            font-family: 'Work Sans';
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .contenedor-header {
+            background: #1e2326;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+        .contenedor-header header {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .contenedor-header header .logo a {
+            font-family: 'Righteous';
+            font-size: 36px;
+            color: #1CB698;
+            text-decoration: none;
+        }
+        .contenedor-header header ul {
+            display: flex;
+            list-style: none;
+        }
+        .contenedor-header header nav ul li a {
+            text-align: none;
+            color: #fff;
+            margin: 0 15px;
+            padding: 3px;
+            transition: .5s;
+            text-decoration: none;
+        }
+        .contenedor-header header nav ul li a:hover {
+            color: #1CB698;
+        }
+        .nav-responsive {
+            background-color: #1CB698;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+        .inicio {
+            background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30,35,38,1)),
+            url(https://www.hubspot.com/hubfs/media/queesseguridadinformatica.jpeg);
+            background-size: cover;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+        .inicio .contenido-banner {
+            padding: 20px;
+            background-color: #1e2326;
+            max-width: 350px;
+            margin: auto;
+            text-align: center;
+            border-radius: 40px;
+        }
+        .inicio .contenido-banner img {
+            margin-top: 40px;
+            border: 10px solid #1CB698;
+            display: block;
+            width: 80%;
+            margin: auto;
+            border-radius: 100%;
+        }
+        .inicio .contenido-banner h1 {
+            margin-top: 40px;
+            font-size: 42px;
+            font-family: 'Righteous';
+        }
+        .inicio .contenido-banner h2 {
+            font-size: 15px;
+            font-weight: normal;
+        }
+        .inicio .contenido-banner .redes a {
+            color: #fff;
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid #fff;
+            border-radius: 100%;
+            width: 42px;
+            height: 42px;
+            line-height: 42px;
+            margin: 40px 5px;
+            font-size: 20px;
+            transition: .3s;
+        }
+        .inicio .contenido-banner .redes a:hover {
+            background-color: #1CB698;
+        }
+        .sobremi {
+            background-color: #1e2326;
+            color: #fff;
+            padding: 50px 20px;
+        }
+        .sobremi .contenido-seccion {
+            max-width: 1100px;
+            margin: auto;
+        }
+        .sobremi h2 {
+            font-size: 48px;
+            font-family: 'Righteous';
+            text-align: center;
+            padding: 20px 0;
+        }
+        .sobremi .contenido-seccion p {
+            font: 18px;
+            line-height: 22px;
+            margin-bottom: 20px;
+        }
+        .sobremi .contenido-seccion p span {
+            color: #1CB698;
+            font-weight: bold;
+        }
+        .sobremi .fila {
+            display: flex;
+        }
+        .sobremi .fila .col {
+            width: 50%;
+        }
+        .sobremi .fila .col h3 {
+            font-size: 28px;
+            font-family: 'Righteous';
+            margin-bottom: 25px;
+        }
+        .sobremi .fila .col ul {
+            list-style: none;
+        }
+        .sobremi .fila .col ul li {
+            margin: 12px 0;
+        }
+        .sobremi .fila .col ul li strong {
+            display: inline-block;
+            color: #1CB698;
+            width: 130px;
+        }
+        .sobremi .fila .col ul li span {
+            background-color: #1CB698;
+            padding: 3px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .sobremi .fila .col .contenedor-intereses {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .sobremi .fila .col .contenedor-intereses .interes {
+            width: 100px;
+            height: 100px;
+            background-color: #252A2E;
+            border-radius: 10px;
+            margin: 0 15px 15px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: .3s;
+        }
+        .sobremi .fila .col .contenedor-intereses .interes:hover {
+            background-color: #1CB698;
+        }
+        .sobremi .fila .col .contenedor-intereses .interes i {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .sobremi button {
+            cursor: pointer;
+            background-color: transparent;
+            border: 2px solid #fff;
+            width: fit-content;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 22px;
+            font-size: 16px;
+            color: #fff;
+            position: relative;
+            z-index: 10;
+        }
+        .sobremi button .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #1CB698;
+            z-index: -1;
+            transition: 1s;
+        }
+        .sobremi button:hover .overlay {
+            width: 100%;
+        }
+        .skills {
+            background-color: #252A2E;
+            color: #fff;
+            padding: 50px 20px;
+        }
+        .skills .contenido-seccion {
+            max-width: 1100px;
+            margin: auto;
+        }
+        .skills h2 {
+            font-size: 48px;
+            font-family: 'Righteous';
+            text-align: center;
+            padding: 20px 0;
+        }
+        .skills .fila {
+            display: flex;
+        }
+        .skills .fila .col {
+            width: 50%;
+            padding: 0 20px;
+        }
+        .skills .fila .col h3 {
+            font-size: 28px;
+            font-family: 'Righteous';
+            margin-bottom: 25px;
+        }
+        .skills .skill > span {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .skills .skill .barra-skill {
+            height: 8px;
+            width: 80%;
+            background-color: #131517;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .skills .skill .progreso {
+            background-color: #1CB698;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 8px;
+        }
+        .skills .skill .barra-skill span {
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            background-color: #1CB698;
+            border-radius: 50px;
+            line-height: 40px;
+            text-align: center;
+            top: -17px;
+            right: -15px;
+            font-size: 14px;
+        }
+        .skills .skill .javascript {
+            width: 0%;
+            animation: 2s javascript forwards;
+        }
+        @keyframes javascript {
+            0% { width: 0%; }
+            100% { width: 75%; }
+        }
+        .skills .skill .htmlcss {
+            width: 0%;
+            animation: 2s htmlcss forwards;
+        }
+        @keyframes htmlcss {
+            0% { width: 0%; }
+            100% { width: 65%; }
+        }
+        .skills .skill .photoshop {
+            width: 0%;
+            animation: 2s photoshop forwards;
+        }
+        @keyframes photoshop {
+            0% { width: 0%; }
+            100% { width: 80%; }
+        }
+        .skills .skill .wordpress {
+            width: 0%;
+            animation: 2s wordpress forwards;
+        }
+        @keyframes wordpress {
+            0% { width: 0%; }
+            100% { width: 75%; }
+        }
+        .curriculum {
+            background-color: #1e2326;
+            color: #fff;
+            padding: 50px 20px;
+        }
+        .curriculum .contenido-seccion {
+            max-width: 1000px;
+            margin: auto;
+        }
+        .curriculum h2 {
+            font-size: 48px;
+            font-family: 'Righteous';
+            text-align: center;
+            padding: 20px 0;
+        }
+        .curriculum .fila {
+            display: flex;
+            justify-content: space-between;
+        }
+        .curriculum .fila .item .casa {
+            color: #1CB698;
+            font-size: 22px;
+            font-weight: bold;
+            display: block;
+        }
+        .portfolio {
+            background-color: #252A2E;
+            color: #fff;
+            padding: 50px 20px;
+        }
+        .portfolio .contenido-seccion {
+            max-width: 1100px;
+            margin: auto;
+        }
+        .portfolio h2 {
+            font-size: 48px;
+            font-family: 'Righteous';
+            text-align: center;
+            padding: 20px 0;
+        }
+        .portfolio .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .portfolio .galeria .proyecto {
+            position: relative;
+            max-width: 340px;
+            height: fit-content;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .portfolio .galeria .proyecto img {
+            width: 100%;
+            display: block;
+        }
+        .portfolio .galeria .proyecto .overlay {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background: linear-gradient(rgba(28,182,152,.8), rgba(28,182,152,.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: 1s;
+            font-size: 18px;
+            letter-spacing: 3px;
+            opacity: 0;
+        }
+        .portfolio .galeria .proyecto .overlay h3 {
+            margin-bottom: 20px;
+            transition: 1s;
+        }
+        .portfolio .galeria .proyecto .overlay:hover {
+            opacity: 1;
+        }
+        .portfolio .galeria .proyecto .overlay:hover h3 {
+            margin-bottom: 0px;
+        }
+        .contacto {
+            background-image: url(Imagen);
+            background-color: #1e2326;
+            color: #fff;
+            padding: 50px 0;
+        }
+        .contacto .contenido-seccion {
+            max-width: 1100px;
+            margin: auto;
+        }
+        .contacto h2 {
+            font-size: 48px;
+            font-family: 'Righteous';
+            text-align: center;
+            padding: 20px 0;
+        }
+        .contacto .fila {
+            display: flex;
+        }
+        .contacto .col {
+            width: 50%;
+            padding: 10px;
+            position: relative;
+        }
+        .contacto .col input, .contacto .col textarea {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            border: none;
+            margin-bottom: 20px;
+            background-color: #252A2E;
+            color: #fff;
+            font-size: 18px;
+        }
+        .contacto button {
+            cursor: pointer;
+            background-color: transparent;
+            border: 2px solid #fff;
+            width: fit-content;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 22px;
+            font-size: 16px;
+            color: #fff;
+            position: relative;
+            z-index: 10;
+        }
+        .contacto button .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #1CB698;
+            z-index: -1;
+            transition: 1s;
+        }
+        .contacto button:hover .overlay {
+            width: 100%;
+        }
+        .contacto .col img {
+            width: 100%;
+        }
+        .contacto .col .info {
+            position: absolute;
+            top: 40%;
+            background-color: #252A2E;
+            padding: 20px;
+            max-width: 350px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .contacto .col .info ul {
+            list-style: none;
+        }
+        .contacto .col .info ul li {
+            margin-bottom: 20px;
+        }
+        .contacto .col .info ul li i {
+            color: #1CB698;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        footer {
+            background-color: #252A2E;
+            color: #fff;
+            padding: 50px 0 30px 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+        }
+        footer .redes {
+            margin-bottom: 20px;
+        }
+        footer .redes a {
+            color: #fff;
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid #fff;
+            border-radius: 100%;
+            width: 42px;
+            height: 42px;
+            line-height: 42px;
+            margin: 40px 5px;
+            font-size: 20px;
+            transition: .3s;
+        }
+        footer .arriba {
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: #1CB698;
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -25px;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 18px;
+        }
+        @media screen and (max-width:980px) {
+            nav {
+                display: none;
+            }
+            .nav-responsive {
+                display: block;
+            }
+            nav.responsive {
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 75px;
+                background-color: #252A2E;
+                width: 180px;
+            }
+            nav.responsive ul {
+                display: block !important;
+            }
+            nav.responsive ul li {
+                border-bottom: 1px solid #fff;
+                padding: 10px 0;
+            }
+        }
+        @media screen and (max-width:700px) {
+            .sobremi .fila {
+                display: block;
+            }
+            .sobremi .fila .col {
+                width: fit-content;
+            }
+            .skills .fila {
+                display: block;
+            }
+            .skills .fila .col {
+                width: 100%;
+            }
+            .skills .fila .col .barra-skill {
+                width: 100%;
+            }
+            .curriculum .fila {
+                display: block;
+            }
+            .curriculum .fila .col {
+                width: 90%;
+            }
+            .curriculum .fila .derecha {
+                margin-left: 20px;
+            }
+            .portfolio .galeria {
+                display: block;
+                width: 100%;
+            }
+            .portfolio .galeria .proyecto {
+                max-width: 100%;
+            }
+            .portfolio .galeria .proyecto img {
+                width: 100%;
+            }
+            .contacto .fila {
+                display: block;
+            }
+            .contacto .fila .col {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-header">
+        <header>
+            <div class="logo">
+                <a href="#">JONNY</a>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
+                    <li><a href="#sobremi" onclick="seleccionar()">SOBRE MÍ</a></li>
+                    <li><a href="#skills" onclick="seleccionar()">MIS SERVICIOS</a></li>
+                    <li><a href="#curriculum" onclick="seleccionar()">INFORMACIÓN ADICIONAL</a></li>
+                    <li><a href="#portfolio" onclick="seleccionar()">HABILIDADES</a></li>
+                    <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
+                </ul>
+            </nav>
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+    </div>
+
+    <section id="inicio" class="inicio">
+        <div class="contenido-banner">
+            <div class="contenedor-img">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj1xNXkoaE_6JwaTixmLBoUYrNzb1AaEaT4jZXfUMU2HCWdCiQLxEvGtXX5TVj320o2l6nwsTZVRS-sL9geMAXbZGblCKCyDcELCtfgGzG2k_cLHY_5HDqVRfq1FsnHzFQvHEYHvam3sw8rPXpyDQJEs108siC2eYQqVGFPGk-cQ64oPUG2OH5yUajYKQyF" alt="">
+            </div>
+            <h1>JHONATHAN GARCÍA</h1>
+            <h2>ESTUDIANTE DE SISTEMA INFORMÁTICO</h2>
+            <div class="redes">
+                <a href="https://www.facebook.com/julian.ramirezlopez.37?mibextid=ZbWKwL"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/garciazjonathan?igsh=eGk5cHRwaXY0N3Rp"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/qr/D4IE274HD66OJ1"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="http://tiktok.com/@jony.sv503"><i class="fa-brands fa-tiktok"></i>
+                <a href="https://github.com/JhonathanGarcia/JonnyV"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobremi" class="sobremi">
+        <div class="contenido-seccion">
+            <h2>Sobre Mí</h2>
+            <p><span>Hola, soy Jhonathan García.</span> Mi interés por la informática comenzó cuando empecé a explorar cómo funcionan las computadoras y los programas, Me fascina cómo la tecnología puede resolver problemas complejos y mejorar nuestras vidas diarias , </span>  Aunque aún no tengo experiencia laboral en este campo, he estado aprendiendo de manera autodidacta y realizando proyectos personales para mejorar mis habilidades.</p>
+
+            <div class="fila">
+                <div class="col">
+                    <h3>Datos Personales</h3>
+                    <ul>
+                        <li>
+                            <strong>Cumpleaños</strong>
+                            14-02-2005
+                        </li>
+                        <li>
+                            <strong>Teléfono</strong>
+                            63068219
+                        </li>
+                        <li>
+                            <strong>Website</strong>
+                            Jonag628@gmail.com
+                        </li>
+                        <li>
+                            <strong>Dirección</strong>
+                            San Pedro Masahuat, La Paz
+                        </li>
+                        <li>
+                            <strong>Cargo</strong>
+                            <span>Estudiante</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col">
+                    <h3>Intereses</h3>
+                    <div class="contenedor-intereses">
+                        <div class="interes">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span>JUEGOS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-headphones"></i>
+                            <span>MÚSICA</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-video"></i>
+                            <span>VIDEOS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-brands fa-windows"></i>
+                            <span>WINDOWS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-person-hiking"></i>
+                            <span>DEPORTE</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-book"></i>
+                            <span>LIBROS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-car"></i>
+                            <span>AUTOS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>FOTOS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="contenido-seccion">
+            <h2>MIS SERVICIOS</h2>
+            <div class="fila">
+                <div class="col">
+                    <div class="skill">
+                        <span>Mantenimiento Básicos</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Creación de sistema de red</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>65%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="skill">
+                        <span>Edición de videos</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>80%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Edición de fotos</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>75%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="curriculum">
+        <div class="contenido-seccion">
+            <h2>INFORMACIÓN ADICIONAL</h2>
+            <div class="fila">
+                <div class="col izquierda">
+                    <div class="item izq">
+                        <span class="casa">Me gusta mucho el apartado de sistema informático y la creación de videos</span>
+                        <p> Estoy empezando en este mundo de la informática. La gestión de archivos y el procesamiento de textos eficiente.
+                            Este sistema informático básico se desarrolló con empatía hacia las necesidades de los usuarios domésticos y pequeñas empresas. Aportó alegría al simplificar tareas diarias y fomentó el respeto al ofrecer una solución accesible y fácil de usar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="contenido-seccion">
+            <h2>HABILIDADES</h2>
+            <div class="galeria">
+                <div class="proyecto">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEVhVGxczeRQL20veHYcTjT1tqicd55N3-GpOo0pn4AET1KuGK9oxQ9AyTPD5ASM28Vu03yZs7_-ym-qJyGEMM6w4HHCbqlms1hk6v-Crav_5yyMh7yIMbB8yOz1gTp9Mnp5xtR5FtZ91pO_L9F_erbVsnN-BfavWlrcJDGxpD5uprnHkK7XrH-7inXJVP/s320/portafolio%20img%201.png" alt="">
+                    <div class="overlay">
+                        <p>Word</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfzz6JWdU5AdFGT0ld566idfjcNWf5C8d4kovNuVoUGgvOTh9FvL2Kyc-KfL8KkzQ5JBUZ0ThD-lAW9cOkE-jlq5zneFYLsaroO-EmrdaZzNFy7hsxPfBBmNIBOjBLuyFO1OfPbZadVaYCQCkCCRHQ3F-Ogu4sTQvm7J2MG7kUys42WrDhi_qO8Ygl7iY2/s320/portafolio%20img%202.png" alt="">
+                    <div class="overlay">
+                        <p>Visual Studio</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY8z6DEdrzQX02lqJ7BUsuiBYeFJcrvp_i-Ax8Xs81ai24eF43t2vIr-7SkX_PnDbyJlC3tA0pyG6DEvdODQWJj4dFnIcwN9eFHvEOU0TmEWCUYx71SY0fj8G244aTPV6gSCEvDzcIxYp4LUZ5EDMhElHn1VuNBUhfOM04Iu9_V5QCxtjlSNDQkdMLxmxf/s320/portafolio%20img%203%20(1).png" alt="">
+                    <div class="overlay">
+                        <p>IA</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNm93Z4B83umHVWr6aGVeABQURzDyjiIveibnUHIIs3cqSTp27j9aDUNbqshSoZd3dQ57x6B6v-5Jp1KxVV3borin9kyKzlJodXMLFo0yuOD8xR_a9QPk_d6oLAkXqKUi_d01SXdFpo9jrzsKcl3puymg2_KbGKTjrAcoci8tMf9zbDJ6OR2GiktbrTkDd/s320/portafolio%20img%204.png" alt="">
+                    <div class="overlay">
+                        <p>GitHub</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggwhecPEOBdT_wY8HykILsxChmtBgnOgD2cyyaIeO7fbHP-O_Z_aZZsFwos77UVn8XpMEoTJO3jGlV8pTnBMdU5EMUF0p55G-wZEtWeGiz8U1OBugNTSB5half1mZVAi2LQLktRW3TOw-U5SNiPNPU_guFEmO79NdPS9ymZzUskO5dGh9494Smth6JHPIr/s320/portafolio%20img%205.png" alt="">
+                    <div class="overlay">
+                        <p>CapCut</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8jpsTbZRINyi5T1dh7CFlLAgyjN2lNGcC2-0U7bdVLo9SFNmfzHM8rvZvpMl2_8up3zduOTYRD1Dq8e5Nw4m9eyUYofGqqssdTnpCA5dXYYRFPsD68_bisvLIar9206oJGD_fWkfKsm9GkZbHnIae336kGv8DQ2wdHO4GCwdYc1F_XBB5YDGbIuN1BQXE/s320/portafolio%20img%206.png" alt="">
+                    <div class="overlay">
+                        <p>Stack-ai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <div class="contenido-seccion">
+            <h2>CONTACTO</h2>
+            <div class="fila">
+                <div class="col">
+                    <input type="text" placeholder="Tú Nombre">
+                    <input type="text" placeholder="Número telefónico">
+                    <input type="text" placeholder="Dirección de correo">
+                    <input type="text" placeholder="Tema">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
+                    <button>
+                        Enviar Mensaje<i class="fa-solid fa-paper-plane"></i>
+                        <span class="overlay"></span>
+                    </button>
+                </div>
+                <div class="col">
+                    <img src="img/ubicacion.png" alt="">
+                    <div class="info">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                San Pedro Masahuat, La Paz
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-mobile-screen"></i>
+                                Llamanos: 63068219 
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                Jonag628@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="#inicio" class="arriba">
+            <i class="fa-solid fa-angles-up"></i>
+        </a>
+        <div class="redes">
+            <a href="https://www.facebook.com/julian.ramirezlopez.37?mibextid=ZbWKwL"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/garciazjonathan?igsh=eGk5cHRwaXY0N3Rp"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/qr/D4IE274HD66OJ1"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="http://tiktok.com/@jony.sv503"><i class="fa-brands fa-tiktok"></i>
+            <a href="https://github.com/JhonathanGarcia/JonnyV"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        let menuVisible = false;
+        function mostrarOcultarMenu() {
+            if(menuVisible) {
+                document.getElementById("nav").classList = "";
+                menuVisible = false;
+            } else {
+                document.getElementById("nav").classList = "responsive";
+                menuVisible = true;
+            }
+        }
+
+        function seleccionar() {
+            document.getElementById("nav").classList = "";
+            menuVisible = false;
+        }
+
+        function efectoHabilidades() {
+            var skills = document.getElementById("skills");
+            var distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
+            if(distancia_skills >= 300) {
+                let habilidades = document.getElementsByClassName("progreso");
+                habilidades[0].classList.add("javascript");
+                habilidades[1].classList.add("htmlcss");
+                habilidades[2].classList.add("photoshop");
+                habilidades[3].classList.add("wordpress");
+                habilidades[4].classList.add("drupal");
+                habilidades[5].classList.add("comunicacion");
+                habilidades[6].classList.add("trabajo");
+                habilidades[7].classList.add("creatividad");
+                habilidades[8].classList.add("dedicacion");
+                habilidades[9].classList.add("proyect");
+            }
+        }
+
+        window.onscroll = function() {
+            efectoHabilidades();
+        }
+    </script>
+</body>
+</html>
+ 
